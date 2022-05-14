@@ -29,7 +29,6 @@ export const ContactItemNum = styled.a`
 `;
 
 export const DeleteBtn = styled.button`
-  display: inline-block;
   height: 27px;
   padding: 0;
   margin: 0 20px 0 50px;

@@ -55,6 +55,7 @@ export const FetchErrorText = styled.p`
 `;
 
 export const RefetchBtn = styled.button`
+  display: block;
   padding: 0;
   margin-top: 20px;
   color: #3498db;

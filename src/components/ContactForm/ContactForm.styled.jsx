@@ -31,7 +31,6 @@ export const FormInput = styled.input`
 `;
 
 export const FormSubmitBtn = styled.button`
-  display: inline-block;
   width: 160px;
   height: 50px;
   margin-left: auto;

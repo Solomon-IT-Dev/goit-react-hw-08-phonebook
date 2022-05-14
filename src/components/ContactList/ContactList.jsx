@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
-import { getFilterValue } from 'redux/filter/slice';
+import { getFilterValue } from 'redux/filter/filter-slice';
 import { useGetAllContactsQuery } from 'services/phoneBookApi';
 import sortContactsByName from 'utils/sortContactsByName';
 import ContactItem from 'components/ContactItem';
