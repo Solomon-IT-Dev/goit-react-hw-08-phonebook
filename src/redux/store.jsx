@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
 import {
   persistStore,
+  persistReducer,
   FLUSH,
   REHYDRATE,
   PAUSE,
@@ -10,6 +11,7 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+import { authReducer } from './auth';
 import { phoneBookApi } from 'services/phoneBookApi';
 import { filterSlice } from './filter/filter-slice';
 
@@ -21,6 +23,7 @@ const authPersistConfig = {
 
 export const store = configureStore({
   reducer: {
+    auth: persistReducer(authPersistConfig, authReducer),
     [phoneBookApi.reducerPath]: phoneBookApi.reducer,
     filter: filterSlice.reducer,
   },

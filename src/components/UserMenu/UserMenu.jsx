@@ -1,3 +1,5 @@
+import { useSelector, useDispatch } from 'react-redux';
+import { authSelectors, authOperations } from 'redux/auth';
 import { FaMailchimp, FaSignOutAlt } from 'react-icons/fa';
 import { IconContext } from 'react-icons';
 import {
@@ -8,6 +10,9 @@ import {
 } from './UserMenu.styled';
 
 export default function UserMenu() {
+  const userName = useSelector(authSelectors.getUsername);
+  const dispatch = useDispatch();
+
   return (
     <UserMenuWrapper>
       <Avatar>
@@ -15,8 +20,8 @@ export default function UserMenu() {
           <FaMailchimp />
         </IconContext.Provider>
       </Avatar>
-      <UserName>Roman L.</UserName>
-      <LogOutBtn type="button">
+      <UserName>{userName}</UserName>
+      <LogOutBtn type="button" onClick={dispatch(authOperations.logOut())}>
         <IconContext.Provider value={{ size: '3em' }}>
           <FaSignOutAlt />
         </IconContext.Provider>

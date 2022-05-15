@@ -1,5 +1,7 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { authSelectors } from 'redux/auth';
 import AppName from 'components/AppName';
 import Navigation from 'components/Navigation';
 import AuthNav from 'components/AuthNav';
@@ -8,13 +10,14 @@ import Container from 'components/Container';
 import { AppBar } from './Layout.styled';
 
 export default function Layout() {
+  const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
+
   return (
     <>
       <AppBar>
         <AppName title="PhoneBook" />
         <Navigation />
-        <AuthNav />
-        <UserMenu />
+        {isLoggedIn ? <UserMenu /> : <AuthNav />}
       </AppBar>
 
       <Container>

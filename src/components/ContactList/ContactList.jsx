@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
-import { getFilterValue } from 'redux/filter/filter-slice';
+import { getFilterValue } from 'redux/filter/filter-selectors';
 import { useGetAllContactsQuery } from 'services/phoneBookApi';
 import sortContactsByName from 'utils/sortContactsByName';
 import ContactItem from 'components/ContactItem';
@@ -9,7 +9,7 @@ import { IconContext } from 'react-icons';
 import {
   TotalContactsText,
   TotalContactsNum,
-  PhonebookList,
+  PhoneBookList,
   ListElement,
   LoaderItem,
   NoMatchesText,
@@ -47,7 +47,7 @@ export default function ContactList() {
         .filter(
           contact =>
             contact.name.toLowerCase().includes(normalizedFilter) ||
-            contact.phone.includes(normalizedFilter)
+            contact.number.includes(normalizedFilter)
         )
         .sort(sortContactsByName);
     },
@@ -66,22 +66,22 @@ export default function ContactList() {
             Contacts amount:{' '}
             <TotalContactsNum>{totalContactsAmount()}</TotalContactsNum>
           </TotalContactsText>
-          <PhonebookList>
+          <PhoneBookList>
             {visibleContacts.length ? (
-              visibleContacts.map(({ id, name, phone }) => (
+              visibleContacts.map(({ id, name, number }) => (
                 <ListElement key={id}>
-                  <ContactItem id={id} name={name} phone={phone} />
+                  <ContactItem id={id} name={name} number={number} />
                 </ListElement>
               ))
             ) : (
               <NoMatchesText>No contact matches</NoMatchesText>
             )}
-          </PhonebookList>
+          </PhoneBookList>
         </>
       ) : (
         <>
           <NoContactsText>
-            There are no contacts in your phonebook
+            There are no contacts in your phone book
           </NoContactsText>
         </>
       )}

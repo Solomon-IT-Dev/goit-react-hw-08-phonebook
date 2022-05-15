@@ -10,14 +10,14 @@ import {
   DeleteBtn,
 } from './ContactItem.styled';
 
-export default function ContactItem({ id, name, phone }) {
+export default function ContactItem({ id, name, number }) {
   const [deleteContact, { isLoading: isDeleting }] = useDeleteContactMutation();
 
   const onContactDelete = async (contactId, contactName) => {
     try {
       await deleteContact(contactId);
       showSuccessMessage(
-        `"${contactName}" has been deleted from your phonebook`
+        `"${contactName}" has been deleted from your phone book`
       );
     } catch (error) {
       console.log(error.message);
@@ -30,7 +30,7 @@ export default function ContactItem({ id, name, phone }) {
   return (
     <ContactItemWrapper>
       <ContactItemName>{name}</ContactItemName>
-      <ContactItemNum href={`tel:${phone}`}>{phone}</ContactItemNum>
+      <ContactItemNum href={`tel:${number}`}>{number}</ContactItemNum>
       <DeleteBtn
         type="button"
         onClick={() => onContactDelete(id, name)}
@@ -48,5 +48,5 @@ export default function ContactItem({ id, name, phone }) {
 ContactItem.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  phone: PropTypes.string.isRequired,
+  number: PropTypes.string.isRequired,
 };

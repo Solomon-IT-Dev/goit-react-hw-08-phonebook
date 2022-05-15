@@ -19,25 +19,28 @@ import {
 
 export default function ContactForm() {
   const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
+  const [number, setNumber] = useState('');
 
   const { data: contacts } = useGetAllContactsQuery();
   const [addContact, { isLoading: isCreating }] = useAddContactMutation();
 
   const nameInputId = nanoid();
-  const phoneInputId = nanoid();
+  const numberInputId = nanoid();
 
-  const onNameChange = evt => {
-    setName(evt.currentTarget.value);
-  };
-
-  const onPhoneChange = evt => {
-    setPhone(evt.currentTarget.value);
+  const onInputChange = ({ target: { name, value } }) => {
+    switch (name) {
+      case 'name':
+        return setName(value);
+      case 'number':
+        return setNumber(value);
+      default:
+        return;
+    }
   };
 
   const formReset = () => {
     setName('');
-    setPhone('');
+    setNumber('');
   };
 
   const onContactFormSubmit = async evt => {
@@ -47,26 +50,26 @@ export default function ContactForm() {
       contacts.find(
         contact =>
           contact.name.toLowerCase() === name.toLowerCase() &&
-          contact.phone === phone
+          contact.number === number
       )
     ) {
-      showInfoMessage('This contact is already in your phonebook');
+      showInfoMessage('This contact is already in your phone book');
       return;
     }
 
-    if (contacts.find(contact => contact.phone === phone)) {
-      showInfoMessage('This phone number is already in your phonebook');
+    if (contacts.find(contact => contact.number === number)) {
+      showInfoMessage('This phone number is already in your phone book');
       return;
     }
 
     const newContact = {
       name,
-      phone,
+      number,
     };
 
     try {
       await addContact(newContact);
-      showSuccessMessage('New contact has been added in your phonebook');
+      showSuccessMessage('New contact has been added in your phone book');
     } catch (error) {
       console.log(error.message);
       showErrorMessage('Something goes wrong, new contact was not created');
@@ -87,22 +90,22 @@ export default function ContactForm() {
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             value={name}
-            onChange={onNameChange}
+            onChange={onInputChange}
             id={nameInputId}
             required
           />
         </FormInputLabel>
-        <FormInputLabel htmlFor={phoneInputId}>
+        <FormInputLabel htmlFor={numberInputId}>
           Number
           <FormInput
             type="tel"
-            name="phone"
+            name="number"
             placeholder="Type number here"
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-            value={phone}
-            onChange={onPhoneChange}
-            id={phoneInputId}
+            value={number}
+            onChange={onInputChange}
+            id={numberInputId}
             required
           />
         </FormInputLabel>

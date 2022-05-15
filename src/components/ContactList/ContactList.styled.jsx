@@ -9,7 +9,7 @@ export const TotalContactsNum = styled.span`
   color: blue;
 `;
 
-export const PhonebookList = styled.ul`
+export const PhoneBookList = styled.ul`
   margin-top: 10px;
   display: flex;
   flex-direction: column;

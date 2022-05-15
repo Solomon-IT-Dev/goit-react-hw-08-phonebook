@@ -1,4 +1,7 @@
+import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { authOperations } from 'redux/auth';
 import createAsyncPage from 'utils/createAsyncPage';
 import Layout from 'components/Layout';
 
@@ -9,6 +12,12 @@ const PhoneBookPage = createAsyncPage('PhoneBookPage');
 const NotFoundPage = createAsyncPage('NotFoundPage');
 
 export default function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(authOperations.fetchCurrentUser());
+  }, [dispatch]);
+
   return (
     <>
       <Routes>

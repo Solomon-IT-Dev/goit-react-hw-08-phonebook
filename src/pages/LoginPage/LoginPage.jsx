@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import { nanoid } from '@reduxjs/toolkit';
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { authOperations } from 'redux/auth';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const emailInputId = nanoid();
   const passwordInputId = nanoid();
@@ -29,7 +30,7 @@ export default function LoginPage() {
 
   const onFormSubmit = evt => {
     evt.preventDefault();
-    // dispatch(authOperations.logIn({ email, password }));
+    dispatch(authOperations.logIn({ email, password }));
     formReset();
   };
 

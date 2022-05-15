@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { nanoid } from '@reduxjs/toolkit';
-import { getFilterValue, changeFilter } from 'redux/filter/filter-slice';
+import { changeFilter } from 'redux/filter/filter-slice';
+import { getFilterValue } from 'redux/filter/filter-selectors';
 import { FilterWrapper, FilterInputLabel, FilterInput } from './Filter.styled';
 
 export default function Filter() {
