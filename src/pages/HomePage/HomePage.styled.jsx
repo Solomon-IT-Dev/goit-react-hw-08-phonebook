@@ -16,6 +16,7 @@ export const MainMassage = styled.h1`
 
 export const AdditionalText = styled.p`
   text-align: center;
-  font-size: 42px;
-  font-weight: 500;
+  font-size: 33px;
+  color: #3f4041;
+  font-weight: 400;
 `;

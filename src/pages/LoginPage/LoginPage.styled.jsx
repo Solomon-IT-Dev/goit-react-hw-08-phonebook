@@ -4,7 +4,7 @@ export const FormWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 40px;
+  margin-top: 80px;
 `;
 
 export const FormTitle = styled.h1`

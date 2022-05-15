@@ -10,7 +10,8 @@ export default function HomePage() {
       <PhoneIcon>☎️</PhoneIcon>
       {isLoggedIn ? (
         <MainMassage>
-          Create a personal PhoneBook and manage your contacts
+          Create a personal PhoneBook
+          <br /> and manage your contacts
         </MainMassage>
       ) : (
         <>

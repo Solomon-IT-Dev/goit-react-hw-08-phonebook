@@ -8,8 +8,8 @@ export const AuthNavList = styled.nav`
 export const AuthNavLink = styled(NavLink)`
   display: inline-block;
   padding: 12px 20px;
-  font-weight: 500;
-  font-size: 22px;
+  font-weight: 400;
+  font-size: 20px;
   color: #dcdcdc;
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
   &:hover {

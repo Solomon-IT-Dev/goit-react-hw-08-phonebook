@@ -21,7 +21,10 @@ export default function UserMenu() {
         </IconContext.Provider>
       </Avatar>
       <UserName>{userName}</UserName>
-      <LogOutBtn type="button" onClick={dispatch(authOperations.logOut())}>
+      <LogOutBtn
+        type="button"
+        onClick={() => dispatch(authOperations.logOut())}
+      >
         <IconContext.Provider value={{ size: '3em' }}>
           <FaSignOutAlt />
         </IconContext.Provider>

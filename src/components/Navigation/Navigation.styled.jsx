@@ -8,6 +8,7 @@ export const AppNav = styled.nav`
 export const AppNavLink = styled(NavLink)`
   display: inline-block;
   padding: 12px 20px;
+  text-transform: uppercase;
   font-weight: 500;
   font-size: 22px;
   color: #dcdcdc;
