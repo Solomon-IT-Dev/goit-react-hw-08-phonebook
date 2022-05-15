@@ -13,3 +13,9 @@ export const MainMassage = styled.h1`
   font-weight: 500;
   letter-spacing: 1px;
 `;
+
+export const AdditionalText = styled.p`
+  text-align: center;
+  font-size: 42px;
+  font-weight: 500;
+`;

@@ -39,7 +39,7 @@ export default function App() {
           <Route
             path="register"
             element={
-              <PublicRoute redirectTo="/contacts" restricted>
+              <PublicRoute redirectTo="/" restricted>
                 <RegisterPage />
               </PublicRoute>
             }
