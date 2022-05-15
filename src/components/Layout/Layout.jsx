@@ -7,6 +7,7 @@ import Navigation from 'components/Navigation';
 import AuthNav from 'components/AuthNav';
 import UserMenu from 'components/UserMenu';
 import Container from 'components/Container';
+import Loader from 'components/Loader';
 import { AppBar } from './Layout.styled';
 
 export default function Layout() {
@@ -21,7 +22,7 @@ export default function Layout() {
       </AppBar>
 
       <Container>
-        <Suspense fallback={<p>Loading...</p>}>
+        <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>
       </Container>

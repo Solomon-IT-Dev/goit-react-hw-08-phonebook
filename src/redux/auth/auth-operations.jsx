@@ -59,7 +59,6 @@ const fetchCurrentUser = createAsyncThunk(
     const persistedToken = state.auth.token;
 
     if (persistedToken === null) {
-      console.log('Token not available');
       return thunkAPI.rejectWithValue();
     }
 

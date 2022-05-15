@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { nanoid } from '@reduxjs/toolkit';
 import { useDispatch } from 'react-redux';
 import { authOperations } from 'redux/auth';
+import { showInfoMessage } from 'utils/notifications';
 import {
   FormWrapper,
   FormTitle,
@@ -43,6 +44,12 @@ export default function RegisterPage() {
 
   const onFormSubmit = evt => {
     evt.preventDefault();
+
+    if (password.length >= 6) {
+      showInfoMessage('Password must contain at least 6 characters');
+      return;
+    }
+
     dispatch(authOperations.register({ name, email, password }));
     formReset();
   };
