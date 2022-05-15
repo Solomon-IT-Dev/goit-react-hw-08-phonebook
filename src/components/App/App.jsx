@@ -16,7 +16,9 @@ const NotFoundPage = createAsyncPage('NotFoundPage');
 export default function App() {
   const dispatch = useDispatch();
 
-  const isFetchingCurrentUser = useSelector(authSelectors.getIsFetchingCurrent);
+  const isFetchingCurrentUser = useSelector(
+    authSelectors.getIsFetchingCurrentUser
+  );
 
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());

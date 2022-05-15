@@ -1,5 +1,10 @@
-import { MainMassage } from './HomePage.styled';
+import { PhoneIcon, MainMassage } from './HomePage.styled';
 
 export default function HomePage() {
-  return <MainMassage>Create your personal PhoneBook</MainMassage>;
+  return (
+    <>
+      <PhoneIcon>☎️</PhoneIcon>
+      <MainMassage>Create your personal PhoneBook</MainMassage>
+    </>
+  );
 }

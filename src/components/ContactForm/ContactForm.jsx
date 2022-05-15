@@ -95,6 +95,7 @@ export default function ContactForm() {
             required
           />
         </FormInputLabel>
+
         <FormInputLabel htmlFor={numberInputId}>
           Number
           <FormInput
@@ -109,6 +110,7 @@ export default function ContactForm() {
             required
           />
         </FormInputLabel>
+
         <FormSubmitBtn type="submit" disabled={isCreating}>
           {isCreating ? 'Adding...' : 'Add contact'}
         </FormSubmitBtn>

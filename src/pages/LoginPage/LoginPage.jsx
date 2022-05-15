@@ -2,6 +2,14 @@ import { useState } from 'react';
 import { nanoid } from '@reduxjs/toolkit';
 import { useDispatch } from 'react-redux';
 import { authOperations } from 'redux/auth';
+import {
+  FormWrapper,
+  FormTitle,
+  LogInForm,
+  FormInputLabel,
+  FormInput,
+  FormSubmitBtn,
+} from './LoginPage.styled';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -35,13 +43,13 @@ export default function LoginPage() {
   };
 
   return (
-    <div>
-      <h1>Log in to application</h1>
+    <FormWrapper>
+      <FormTitle>Log in to application</FormTitle>
 
-      <form onSubmit={onFormSubmit} autoComplete="off">
-        <label htmlFor={emailInputId}>
+      <LogInForm onSubmit={onFormSubmit} autoComplete="off">
+        <FormInputLabel htmlFor={emailInputId}>
           E-mail
-          <input
+          <FormInput
             type="email"
             name="email"
             placeholder="Enter e-mail"
@@ -50,11 +58,11 @@ export default function LoginPage() {
             id={emailInputId}
             required
           />
-        </label>
+        </FormInputLabel>
 
-        <label htmlFor={passwordInputId}>
+        <FormInputLabel htmlFor={passwordInputId}>
           Password
-          <input
+          <FormInput
             type="password"
             name="password"
             placeholder="Enter password"
@@ -63,10 +71,10 @@ export default function LoginPage() {
             id={passwordInputId}
             required
           />
-        </label>
+        </FormInputLabel>
 
-        <button type="submit">Log in</button>
-      </form>
-    </div>
+        <FormSubmitBtn type="submit">Log in</FormSubmitBtn>
+      </LogInForm>
+    </FormWrapper>
   );
 }

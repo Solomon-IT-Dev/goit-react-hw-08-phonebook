@@ -2,6 +2,14 @@ import { useState } from 'react';
 import { nanoid } from '@reduxjs/toolkit';
 import { useDispatch } from 'react-redux';
 import { authOperations } from 'redux/auth';
+import {
+  FormWrapper,
+  FormTitle,
+  RegisterForm,
+  FormInputLabel,
+  FormInput,
+  FormSubmitBtn,
+} from './RegisterPage.styled';
 
 export default function RegisterPage() {
   const [name, setName] = useState('');
@@ -40,13 +48,13 @@ export default function RegisterPage() {
   };
 
   return (
-    <div>
-      <h1>New User registration</h1>
+    <FormWrapper>
+      <FormTitle>New User registration</FormTitle>
 
-      <form onSubmit={onFormSubmit} autoComplete="off">
-        <label htmlFor={nameInputId}>
+      <RegisterForm onSubmit={onFormSubmit} autoComplete="off">
+        <FormInputLabel htmlFor={nameInputId}>
           Name
-          <input
+          <FormInput
             type="text"
             name="name"
             placeholder="Enter your name"
@@ -55,11 +63,11 @@ export default function RegisterPage() {
             id={nameInputId}
             required
           />
-        </label>
+        </FormInputLabel>
 
-        <label htmlFor={emailInputId}>
+        <FormInputLabel htmlFor={emailInputId}>
           E-mail
-          <input
+          <FormInput
             type="email"
             name="email"
             placeholder="Enter your e-mail"
@@ -68,11 +76,11 @@ export default function RegisterPage() {
             id={emailInputId}
             required
           />
-        </label>
+        </FormInputLabel>
 
-        <label htmlFor={passwordInputId}>
+        <FormInputLabel htmlFor={passwordInputId}>
           Password
-          <input
+          <FormInput
             type="password"
             name="password"
             placeholder="Set password"
@@ -81,10 +89,10 @@ export default function RegisterPage() {
             id={passwordInputId}
             required
           />
-        </label>
+        </FormInputLabel>
 
-        <button type="submit">Register</button>
-      </form>
-    </div>
+        <FormSubmitBtn type="submit">Register</FormSubmitBtn>
+      </RegisterForm>
+    </FormWrapper>
   );
 }
