@@ -5,7 +5,6 @@ export const AppBar = styled.header`
   left: 0;
   position: sticky;
   z-index: 1100;
-  width: 100%;
   min-height: 64px;
   padding-right: 48px;
   padding-left: 48px;

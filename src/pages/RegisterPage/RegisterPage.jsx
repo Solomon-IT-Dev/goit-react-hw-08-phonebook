@@ -45,7 +45,7 @@ export default function RegisterPage() {
   const onFormSubmit = evt => {
     evt.preventDefault();
 
-    if (password.length >= 6) {
+    if (password.length < 5) {
       showInfoMessage('Password must contain at least 6 characters');
       return;
     }

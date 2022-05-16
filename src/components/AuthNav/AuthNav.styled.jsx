@@ -2,7 +2,8 @@ import { NavLink } from 'react-router-dom';
 import styled from '@emotion/styled';
 
 export const AuthNavList = styled.nav`
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: 50px;
 `;
 
 export const AuthNavLink = styled(NavLink)`

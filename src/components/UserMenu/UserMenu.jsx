@@ -16,7 +16,7 @@ export default function UserMenu() {
   return (
     <UserMenuWrapper>
       <Avatar>
-        <IconContext.Provider value={{ size: '4em' }}>
+        <IconContext.Provider value={{ size: '3.5em' }}>
           <FaMailchimp />
         </IconContext.Provider>
       </Avatar>
